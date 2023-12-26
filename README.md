@@ -5,5 +5,5 @@ I want to recover the symbolic expression for the waveform of IMRPhenomA by usin
 The code is organized as follows:
 
 * `Data Generation.ipynb` : this notebook generate the waveform and prepare the data for fitting.
-* `fit.py`: this python scrypt does the fitting. It is a scrypt instead of a notebook because this makes it possibile to visualize the progress bar.
-* `Data Analysis.ipynb`: this notebook is used to load the model obtained by fitting and analyse the result.
+* `fit.py` : this python scrypt does the fitting. It is a scrypt instead of a notebook because this makes it possibile to visualize the progress bar.
+* `Data Analysis.ipynb` : this notebook is used to load the model obtained by fitting and analyse the result.
