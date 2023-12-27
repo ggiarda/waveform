@@ -11,7 +11,7 @@ from sympy import Piecewise
 #--------------------------------------Data Reading----------------------------------------------
 
 # Specify the CSV file path
-csv_file_path = 'data.csv'
+csv_file_path = 'freq_data.csv'
 
 # Read from CSV and create NumPy arrays
 data = np.genfromtxt(csv_file_path, delimiter=',', skip_header=1, dtype=None)
@@ -37,7 +37,7 @@ X = X.reshape(-1, 1)
 model_freq = PySRRegressor(
     model_selection="accuracy",
     populations = 24,
-    niterations= 50,
+    niterations= 300,
     binary_operators=["+", "*", "-", "/", 
                       "^",
                      "cond(x, y) = x < 0 ? Float32(0) : y",
@@ -48,17 +48,17 @@ model_freq = PySRRegressor(
     
     loss="L2DistLoss()",
     
-    maxsize = 45, # Default is 20
+    maxsize = 50, # Default is 20
     
-    #batching=True, # batching is recommended for dataset with > 10,000 datapoints
-    #batch_size = 1000, # Default is 50
+    batching=True, # batching is recommended for dataset with > 10,000 datapoints
+    batch_size = 1000, # Default is 50
     
     extra_sympy_mappings={
                           "cond": lambda x, y: Piecewise((0.0, x < 0), (y, True)), 
                          },
     
     constraints = {
-                   #"^": (-1, 1)
+                   "^": (-1, 1)
                    #"cond": (8, -1)
                   },
     nested_constraints = { 
