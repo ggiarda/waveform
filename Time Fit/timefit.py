@@ -90,4 +90,4 @@ model_time.fit(X, y,variable_names = ["t"])
 
 # Use this if you want to use q as a feature
 
-#model_freq.fit(X, y,variable_names = ["f","q"])
+#model_freq.fit(X, y,variable_names = ["t","q"])
